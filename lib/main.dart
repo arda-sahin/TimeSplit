@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../views/home/home_view.dart';
-
+import 'package:time_split/views/auth/start_view.dart';
+// Yolunu projene göre düzenle
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Time Split',
       debugShowCheckedModeBanner: false,
-      home: const HomeView(),
+      home: const StartView(),
     );
   }
 }
