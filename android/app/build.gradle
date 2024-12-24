@@ -7,38 +7,40 @@ plugins {
 
 android {
     namespace = "com.example.time_split"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 34 // compileSdk flutter.compileSdkVersion yerine sabitlenmiştir.
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11 // JDK 11 kullanımı önerilir.
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = "11"
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.example.time_split"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        minSdk = 21 // sqflite için minimum SDK 21 olmalıdır.
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.debug
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 }
 
+dependencies {
+    implementation "androidx.sqlite:sqlite:2.3.1" // sqflite için gerekli SQLite bağımlılığı
+    implementation "androidx.core:core-ktx:1.10.1" // AndroidX Core için ek bağımlılık
+}
 flutter {
     source = "../.."
 }

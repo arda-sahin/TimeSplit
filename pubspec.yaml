@@ -1,5 +1,5 @@
 name: time_split
-description: "A productivity tracking app that uses dual timers to measure your efficient and inefficient time throughout the day, allowing users to analyze and improve their daily routines."
+description: "A dual-timer productivity tracking app for efficient time management."
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -10,9 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  sqflite: ^2.0.0+4
+
+  path: ^1.8.3 # Dosya yolları için gerekli
   cupertino_icons: ^1.0.8
-  provider: ^6.0.5
-  shared_preferences: ^2.0.18
 
 dev_dependencies:
   flutter_test:
